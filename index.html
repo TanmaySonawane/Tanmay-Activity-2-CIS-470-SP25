@@ -70,10 +70,12 @@
 
 
     function calculateFederalTax(income, filingStatus, mortgage, studentLoan, medicalExpenses) {
+        debugger;
         let taxableIncome = income - getDeductions(filingStatus, mortgage, studentLoan, medicalExpenses);
         return federalTax(taxableIncome,filingStatus);
     }
     function calculateStateTax(income, filingStatus, mortgage, studentLoan, medicalExpenses) {
+        debugger;
         // Massachusetts state tax rate is a flat rate of 5%
         const stateTaxRateMA = 0.05;
         let stateTaxableIncome = income + getDeductions(filingStatus, mortgage, studentLoan, medicalExpenses);
@@ -83,6 +85,7 @@
     }
 
     function federalTax(taxableIncome,filingStatus="individual") {
+        debugger;
         // the total tax is added to this variable
         let totalTax = 0;
         // get brackets
@@ -114,6 +117,7 @@
     }
 
     function getDeductions(filingStatus, mortgage, studentLoan, medicalExpenses) {
+        debugger;
         let baseDeductions = 10000;
         if (filingStatus === 'joint') {
             baseDeductions += 5000;
@@ -122,6 +126,7 @@
     }
 
     function getBrackets(filingStatus){
+        debugger;
         if(filingStatus==="individual"){
             return [
                 { lowerBound: 0, upperBound: 10000, rate: 0.10 },
